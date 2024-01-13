@@ -2,14 +2,16 @@ Create a program that receives a number as a parameter and displays the followin
 
 1 : *
 
-2 : **
-    **
+2 : * *
+    * *
 
-3 : ***
-    ***
-    ***
+3 : * * *
+    * * *
+    * * *
 
-4 : ****
-    ****
-    ****
-    ****
+4 : * * * *
+    * * * *
+    * * * *
+    * * * *
+
+And so on.
