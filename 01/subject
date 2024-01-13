@@ -1,0 +1,15 @@
+Create a program that receives a number as a parameter and displays the following figures depending on the number entered:
+
+1 : *
+
+2 : **
+    **
+
+3 : ***
+    ***
+    ***
+
+4 : ****
+    ****
+    ****
+    ****
