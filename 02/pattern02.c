@@ -1,4 +1,5 @@
 #include <unistd.h>
+void	putnbr(int nbr);
 
 void	display(void)
 {
@@ -8,9 +9,10 @@ void	display(void)
 	i = 0;
 	while (i < 5)
 	{
+		j = 0;
 		while (j < 5)
 		{
-			write(1, &(i + 1), 1);
+			putnbr(i + 1);
 			write(1, " ", 1);
 			j++;
 		}
@@ -19,7 +21,28 @@ void	display(void)
 	}
 }
 
+void	putnbr(int nbr)
+{
+	char c;
 
+	if (nbr < 0)
+	{
+		write(1, "-", 1);
+		nbr *= -1;
+	}	
+	if (nbr < 10)
+	{
+		c = (char)nbr + '0';
+		write(1, &c, 1);
+	}
+	else 
+	{
+		c = (char)nbr % 10 + '0';
+		putnbr(nbr / 10);
+		write(1, &c, 1);
+	}
+}
+	
 int	main(int argc, char *argv[])
 {
 	int n;
@@ -27,15 +50,12 @@ int	main(int argc, char *argv[])
 	n = 0;
 	if (argc == 2)
 	{	
-		while (argv[1][n])
-		{
-			if (argv[1][n] == '-' || argv[1][n] == '+')
-				n++;
-			while (argv[1][n] >= '0' && argv[1][n] <= '9')
-				n++;
-		}
-		display();
+		if (argv[1][n] == '-' || argv[1][n] == '+')
+			n++;
+		while (argv[1][n] >= '0' && argv[1][n] <= '9')
+			n++;
+		if (argv[1][n] == '\0')
+			display();
 	}
 	return 0;
-}	
-
+}
