@@ -10,4 +10,12 @@ int	main(void)
 		j = 1;
 		while(j <= 3)
 		{
+			printf("%d %d ", i, j);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 
+	return (0);
+}
